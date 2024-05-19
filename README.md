@@ -16,6 +16,6 @@ I used ngrok to create the static payload URL.
 
 4. Next, start the command line app by running `npm start`.
    - You can change the port number in `config.js`
-   - To get full details of the event, change `VERBOSE` in `config.js` to true.
+   - **NOTE: To get full details of the event, change `VERBOSE` in `config.js` to true.**
 
 5. Perform actions on any of the repositories of the organizaion **nofars-exercise** and watch the magic happen!
