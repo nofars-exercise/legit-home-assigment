@@ -1,18 +1,21 @@
 const express = require('express');
+
+const { PORT } = require('../config');
+const { GitHubEventHandler } = require('./gitHubEventHandler');
+
 const app = express();
 
+app.use(express.json());
+
+const gitHubEventHandler = new GitHubEventHandler();
+
 app.post('/webhook', (req, res) => {
-  // Handle the incoming webhook payload
-  const payload = req.body;
-
-  // Implement your logic to detect and notify suspicious behaviors based on use cases a, b, and c
-  // ...
-  console.log('Hi');
-  res.status(200).end(); // Responding is important to let GitHub know the webhook was received
+  const eventType = req.headers['x-github-event'];
+  gitHubEventHandler.handle(req.body, eventType);
+  res.status(200).end();
 });
-
-const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, async () => {
-
+  console.log(`Server is running on port ${PORT}\n`);
 });
+
