@@ -12,4 +12,3 @@ I used ngrok to create the static payload URL.
    - To get full details of the event, change `VERBOSE` in `config.js` to true.
 
 4. Perform actions on any of the repositories of the organizaion **nofars-exercise** and watch the magic happen!
-
